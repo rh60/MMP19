@@ -20,7 +20,7 @@ namespace WindowsFormsExamples
         {
             InitializeComponent();
             var X = linspace(0, PI);
-            var F = new fd[] { Sin, Cos };
+            var F = new fd[] { Sin, Cos, x=>Sin(x)/x };
             Plot(plotView1, F, X);
         }
     }
