@@ -21,7 +21,7 @@ namespace MMP
     }
     public struct ParPoint
     {
-        public double t, x, y;       
+        public double t, x, y;
         public static implicit operator Point(ParPoint p)
         {
             return new Point { x = p.x, y = p.y };
@@ -50,13 +50,12 @@ namespace MMP
     public class PlainCurve
     {
         public Func<double, double> x, y;
-        
+
         public IEnumerable<ParPoint> Sample(params double[] T)
         {
             foreach (var it in T)
-                yield return new ParPoint { t=it, x = x(it), y = y(it) }; ;
+                yield return new ParPoint { t = it, x = x(it), y = y(it) }; ;
         }
-
     }
 
     public struct Linspace : IEnumerable<double>
@@ -68,6 +67,11 @@ namespace MMP
             this.a = a;
             this.b = b;
             this.n = n;
+        }
+
+        public static Linspace linspace(double a, double b, int n = 100)
+        {
+            return new Linspace(a, b, n);
         }
 
         public IEnumerator<double> GetEnumerator()
@@ -86,11 +90,11 @@ namespace MMP
         }
     }
 
-    public static class UsingOxyPlot
-    {        
-        public static OxyPlot.WindowsForms.PlotView Plot(IEnumerable<PlainCurve> curves, IEnumerable<double> data)
-        {          
-            var plotv = new OxyPlot.WindowsForms.PlotView();
+    public static class OxyPlotAdapter
+    {
+        public static void Plot(OxyPlot.WindowsForms.PlotView plotv, IEnumerable<PlainCurve> curves, IEnumerable<double> data)
+        {
+            //var plotv = new OxyPlot.WindowsForms.PlotView();
             var model = new OxyPlot.PlotModel();
             foreach (var c in curves)
             {
@@ -99,7 +103,33 @@ namespace MMP
                 model.Series.Add(series);
             }
             plotv.Model = model;
+        }
+
+        public static void Plot(OxyPlot.WindowsForms.PlotView plotv, IEnumerable<Func<double, double>> funs, IEnumerable<double> data)
+        {
+            var model = new OxyPlot.PlotModel();
+            foreach (var f in funs)
+            {
+                var series = new OxyPlot.Series.LineSeries();
+                series.Points.AddRange(data.Select(t => new OxyPlot.DataPoint(t, f(t))));
+                model.Series.Add(series);
+            }
+            plotv.Model = model;
+        }
+
+        public static OxyPlot.WindowsForms.PlotView Plot(IEnumerable<PlainCurve> curves, IEnumerable<double> data)
+        {
+            var plotv = new OxyPlot.WindowsForms.PlotView();
+            Plot(curves, data);
             return plotv;
         }
-    }    
+
+        public static OxyPlot.WindowsForms.PlotView Plot(IEnumerable<Func<double, double>> funs, IEnumerable<double> data)
+        {
+            var plotv = new OxyPlot.WindowsForms.PlotView();
+            Plot(funs, data);
+            return plotv;
+        }
+
+    }
 }
