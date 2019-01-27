@@ -19,8 +19,8 @@ namespace WindowsFormsExamples
         public MainForm()
         {
             InitializeComponent();
-            var X = linspace(0, PI);
-            var F = new fd[] { Sin, Cos, x=>Sin(x)/x };
+            var X = linspace(0, 2*PI);
+            var F = new fd[] { Sin, x=>Sin(x)/x };
             Plot(plotView1, F, X);
         }
     }
