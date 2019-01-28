@@ -6,9 +6,14 @@ using namespace MMP;
 
 int main()
 {
+	vector<double> z;
+	Polynomial<double> zero(z);
 	vector<double> a{ 1,2,3 };
 	Polynomial<double> p(a);
-	for (auto c : a)
-		std::cout << c << ' ';
-	std::cout << std::endl << p(2) << std::endl;
+	auto q = p.MultiplyByFactor(1);
+	vector<double> roots{ 0,1,2,3,4 };
+
+	auto poly = Polynomial<double>::OfRoots(roots);
+	for (auto r : roots)
+		std::cout << r << ' ' << poly(r) << std::endl;
 }

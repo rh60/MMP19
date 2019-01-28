@@ -34,10 +34,11 @@ namespace MMP.Double
         public Polynomial MultiplyByFactor(scalar c)
         {
             var a1 = new scalar[a.Length + 1];
-            a1[0] = a[0];
-            if(c!=0.0)
-            for (int i = 0; i < a.Length; i++)            
-                a1[i + 1] -= c * a[i];            
+            for (int i = 0; i < a.Length; i++)
+            {
+                a1[i] += a[i];
+                a1[i + 1] -= c * a[i];
+            }
             return new Polynomial(a1);
         }
 
@@ -95,10 +96,11 @@ namespace MMP.Complex
         public Polynomial MultiplyByFactor(scalar c)
         {
             var a1 = new scalar[a.Length + 1];
-            a1[0] = a[0];
-            if (c != 0.0)
-                for (int i = 0; i < a.Length; i++)
-                    a1[i + 1] -= c * a[i];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a1[i] += a[i];
+                a1[i + 1] -= c * a[i];
+            }
             return new Polynomial(a1);
         }
 

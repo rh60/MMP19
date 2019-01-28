@@ -16,7 +16,7 @@ namespace ConsoleExamples
     {
         public static void Ex()
         {
-            var roots = _(0.0, 1, 2, 3, 5);
+            var roots = _(0.0, 1, 2, 3, 4);
             var p = OfRoots(roots).Functor;
             var v = vec.OfEnumerable(roots.Select(u => p(u)));
             WriteLine(v);
