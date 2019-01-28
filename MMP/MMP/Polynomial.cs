@@ -18,6 +18,11 @@ namespace MMP.Double
                 a = coefficients;
         }
 
+        public int Degree
+        {
+            get { return a.Length - 1; }
+        }
+
         public scalar Evaluate(scalar x)
         {
             scalar r = a[0];
@@ -55,6 +60,36 @@ namespace MMP.Double
                         a[j] -= roots[i] * a[j-1];                    
             }           
             return new Polynomial(a);
+        }
+
+        /// <summary>
+        /// Creates a formatted display of the polynom as powers of x.
+        /// </summary>
+        /// <returns>Formatted display</returns>
+        public override string ToString()
+        {            
+            var d = Degree;
+            if (d == 0)
+                return a[0].ToString();
+            var b = new StringBuilder();            
+            foreach (var c in a)
+            {
+                if (c == 0.0) continue;
+                if (d < Degree)
+                    if (c > 0f)
+                        b.Append("+");
+                    else
+                        b.Append("-");
+                var ac = Math.Abs(c);
+                if(ac!=1 || d==0)
+                    b.Append(ac);
+                if(d>1)
+                    b.Append($"x^{d}");
+                else if(d==1)
+                    b.Append($"x");
+                d--;
+            }
+            return b.ToString();
         }
 
         public static Func<scalar,scalar> Poly(params scalar[] coefficients)
