@@ -49,11 +49,10 @@ namespace MMP.Double
             var a = new scalar[roots.Length + 1];
             a[0] = 1;
             for (int i = 0; i < roots.Length; i++)
-            {
-                var s = new ArraySegment<scalar>(a, 0, i + 2);
+            {                
                 if (roots[i] != 0.0)
-                    for (int j = s.Count-1; j > 0; j--)                    
-                        s.Array[j] -= roots[i] * s.Array[j-1];                    
+                    for (int j = i+1; j > 0; j--)                    
+                        a[j] -= roots[i] * a[j-1];                    
             }           
             return new Polynomial(a);
         }
@@ -112,10 +111,9 @@ namespace MMP.Complex
             a[0] = 1;
             for (int i = 0; i < roots.Length; i++)
             {
-                var s = new ArraySegment<scalar>(a, 0, i + 2);
                 if (roots[i] != 0.0)
-                    for (int j = s.Count - 1; j > 0; j--)
-                        s.Array[j] -= roots[i] * s.Array[j - 1];
+                    for (int j = i + 1; j > 0; j--)
+                        a[j] -= roots[i] * a[j - 1];
             }
             return new Polynomial(a);
         }

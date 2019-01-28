@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using static MMP.Tools;
 using static System.Console;
-using static MMP.Double.Polynomial;
-using MMP.Double;
-using vec = MathNet.Numerics.LinearAlgebra.Double.DenseVector;
+using static MMP.Complex.Polynomial;
+using System.Numerics;
+using MMP.Complex;
+using vec = MathNet.Numerics.LinearAlgebra.Complex.DenseVector;
 
 
 namespace ConsoleExamples
@@ -16,7 +17,7 @@ namespace ConsoleExamples
     {
         public static void Ex()
         {
-            var roots = _(0.0, 1, 2, 3, 4);
+            var roots = _(new Complex(0,0), 1, 2, 3, 4);
             var p = OfRoots(roots).Functor;
             var v = vec.OfEnumerable(roots.Select(u => p(u)));
             WriteLine(v);
