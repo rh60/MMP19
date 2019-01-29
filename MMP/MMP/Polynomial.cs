@@ -62,6 +62,14 @@ namespace MMP.Double
             return new Polynomial(a);
         }
 
+        public static Polynomial OfRoots(params System.Numerics.Complex[] roots)
+        {
+            var rts = roots.Concat(roots.Select(a => System.Numerics.Complex.Conjugate(a)));
+            var p = MMP.Complex.Polynomial.OfRoots(rts.ToArray());
+            return p.Real;
+        }
+
+
         /// <summary>
         /// Creates a formatted display of the polynom as powers of x.
         /// </summary>
@@ -74,19 +82,21 @@ namespace MMP.Double
             var b = new StringBuilder();            
             foreach (var c in a)
             {
-                if (c == 0.0) continue;
-                if (d < Degree)
-                    if (c > 0f)
-                        b.Append("+");
-                    else
-                        b.Append("-");
-                var ac = Math.Abs(c);
-                if(ac!=1 || d==0)
-                    b.Append(ac);
-                if(d>1)
-                    b.Append($"x^{d}");
-                else if(d==1)
-                    b.Append($"x");
+                if (c != 0.0)
+                {
+                    if (d < Degree)
+                        if (c > 0.0)
+                            b.Append("+");
+                        else
+                            b.Append("-");
+                    var ac = Math.Abs(c);
+                    if (ac != 1 || d == 0)
+                        b.Append(ac);
+                    if (d > 1)
+                        b.Append($"x^{d}");
+                    else if (d == 1)
+                        b.Append($"x");
+                }
                 d--;
             }
             return b.ToString();
@@ -112,6 +122,11 @@ namespace MMP.Complex
                 a = new scalar[1] { 0 };
             else
                 a = coefficients;
+        }
+
+        public int Degree
+        {
+            get { return a.Length - 1; }
         }
 
         public scalar Evaluate(scalar x)
@@ -151,6 +166,42 @@ namespace MMP.Complex
                         a[j] -= roots[i] * a[j - 1];
             }
             return new Polynomial(a);
+        }
+
+
+        /// <summary>
+        /// Creates a formatted display of the polynom as powers of x.
+        /// </summary>
+        /// <returns>Formatted display</returns>
+        public override string ToString()
+        {
+            var d = Degree;
+            if (d == 0)
+                return a[0].ToString();
+            var b = new StringBuilder();
+            foreach (var c in a)
+            {
+                if (c != 0.0)
+                {
+                    if (d < Degree)
+                        b.Append("+");
+                    b.Append(c);
+                    if (d > 1)
+                        b.Append($"z^{d}");
+                    else if (d == 1)
+                        b.Append($"z");
+                }
+                d--;
+            }
+            return b.ToString();
+        }
+
+        public MMP.Double.Polynomial Real
+        {
+            get
+            {
+                return new MMP.Double.Polynomial(a.Select(p => p.Real).ToArray());
+            }
         }
 
         public static Func<scalar, scalar> Poly(params scalar[] coefficients)
