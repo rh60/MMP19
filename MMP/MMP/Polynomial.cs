@@ -64,7 +64,7 @@ namespace MMP.Double
 
         public static Polynomial OfRoots(params System.Numerics.Complex[] roots)
         {
-            var rts = roots.Concat(roots.Select(a => System.Numerics.Complex.Conjugate(a)));
+            var rts = roots.Concat(roots.Where(a=>a.Imaginary!=0).Select(a => System.Numerics.Complex.Conjugate(a)));
             var p = MMP.Complex.Polynomial.OfRoots(rts.ToArray());
             return p.Real;
         }

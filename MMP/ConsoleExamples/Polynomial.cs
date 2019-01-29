@@ -41,7 +41,7 @@ namespace ConsoleExamples
         public static void Ex3()
         {
             var i = new Complex(0, 1);
-            var roots = _<Complex>(i);
+            var roots = _<Complex>(-1,1,1+i);
             var P = dpoly.OfRoots(roots);            
             WriteLine(P);
             WriteLine();
