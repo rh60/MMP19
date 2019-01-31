@@ -15,5 +15,11 @@ namespace MMP
             l.AddRange(data);
             return l;
         }
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            var tmp = a;
+            a = b;
+            b = tmp;
+        }
     }
 }
