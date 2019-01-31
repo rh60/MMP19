@@ -12,10 +12,14 @@ namespace MMP.Double
         scalar[] a;
         public Polynomial(params scalar[] coefficients)
         {
-            if(coefficients.Length==0)
-                a = new scalar[1] {0};
+            if (coefficients.Length == 0)
+                a = new scalar[1] { 0 };
             else
+            {
+                if (coefficients[0] == 0)
+                    throw new ArgumentOutOfRangeException();
                 a = coefficients;
+            }
         }
 
         public int Degree
@@ -62,13 +66,27 @@ namespace MMP.Double
             return new Polynomial(a);
         }
 
-        public static Polynomial OfRoots(params System.Numerics.Complex[] roots)
+        public static Polynomial OfRootsAlternative(params System.Numerics.Complex[] roots)
         {
             var rts = roots.Concat(roots.Where(a=>a.Imaginary!=0).Select(a => System.Numerics.Complex.Conjugate(a)));
             var p = MMP.Complex.Polynomial.OfRoots(rts.ToArray());
             return p.Real;
         }
 
+        public static Polynomial OfRoots(params System.Numerics.Complex[] roots)
+        {
+            if (roots.Length == 0)
+                return new Polynomial();
+            var p = new Polynomial(1);
+            foreach (var r in roots)
+            {
+                if (r.Imaginary == 0)
+                    p *= new Polynomial(1, -r.Real);
+                else
+                    p *= MMP.Double.Tools.QuadFactor(r);
+            }
+            return p;
+        }
 
         /// <summary>
         /// Creates a formatted display of the polynom as powers of x.
@@ -102,11 +120,49 @@ namespace MMP.Double
             return b.ToString();
         }
 
+        /// <summary>
+        /// Indexer 
+        /// </summary>
+        /// <param name="d">x^d</param>
+        /// <returns></returns>
+        public scalar this[int d]
+        {
+            get
+            {
+                if (d < a.Length)
+                    return a[a.Length - d - 1];
+                else
+                    return 0;
+            }
+            set
+            {
+                if (d < a.Length)
+                    a[a.Length - d - 1]=value;
+            }
+        }                  
+
         public static Func<scalar,scalar> Poly(params scalar[] coefficients)
         {
             var p = new Polynomial(coefficients);
             return p.Evaluate;
         }
+
+        public static implicit operator Polynomial(scalar a)
+        {
+            return new Polynomial(a);
+        }
+
+        public static Polynomial operator *(Polynomial p, Polynomial q)
+        {
+            var a = new scalar[p.Degree + q.Degree + 1];
+            a[0] = p.a[0] * q.a[0];
+            var r = new Polynomial(a);
+            for (int d = 0; d < r.Degree; d++)
+                for (int i = 0; i < d + 1; i++)
+                    r[d] += p[i] * q[d - i];                
+            return r;
+        }
+
     }
 }
 

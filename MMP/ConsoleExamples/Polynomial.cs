@@ -46,6 +46,14 @@ namespace ConsoleExamples
             WriteLine(P);
             WriteLine();
         }
+
+        public static void Ex4()
+        {
+            var p = new dpoly(1, 1, 1);
+            var q = new dpoly(1, 2, -1);
+            WriteLine($"({p}) * ({q}) = {p * q}");
+            WriteLine();
+        }
     }
 }
 
