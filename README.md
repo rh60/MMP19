@@ -7,7 +7,7 @@
 * Matlab 2018
 * Julia 1
 
-## Vývojové prostředí (IDE)
+## Vývojová prostředí (IDE)
 
 * Visual Studio 2017
 * Linqpad
