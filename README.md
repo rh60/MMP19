@@ -3,7 +3,7 @@
 ## Programovací jazyky 
 
 * C# 7 [Microsoft](https://docs.microsoft.com/cs-cz/dotnet/csharp/)
-* C++ 17
+* C++ 17 [C++](http://www.cplusplus.com/)
 * Matlab 2018
 * Julia 1
 
