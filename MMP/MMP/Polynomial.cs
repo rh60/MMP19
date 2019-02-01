@@ -17,8 +17,18 @@ namespace MMP.Double
             else
             {
                 if (coefficients[0] == 0)
-                    throw new ArgumentOutOfRangeException();
-                a = coefficients;
+                {
+                    var ind = Array.FindIndex(coefficients, p => p != 0);
+                    if (ind == -1)
+                        a = new scalar[1] { 0 };
+                    else
+                    {
+                        a = new scalar[coefficients.Length - ind];
+                        Array.Copy(coefficients, ind, a, 0, a.Length);
+                    }
+                }
+                else
+                    a = coefficients;
             }
         }
 
@@ -35,7 +45,7 @@ namespace MMP.Double
             return r;
         }
 
-        public Func<scalar,scalar> Functor
+        public Func<scalar, scalar> Functor
         {
             get { return Evaluate; }
         }
@@ -58,17 +68,17 @@ namespace MMP.Double
             var a = new scalar[roots.Length + 1];
             a[0] = 1;
             for (int i = 0; i < roots.Length; i++)
-            {                
+            {
                 if (roots[i] != 0.0)
-                    for (int j = i+1; j > 0; j--)                    
-                        a[j] -= roots[i] * a[j-1];                    
-            }           
+                    for (int j = i + 1; j > 0; j--)
+                        a[j] -= roots[i] * a[j - 1];
+            }
             return new Polynomial(a);
         }
 
         public static Polynomial OfRootsAlternative(params System.Numerics.Complex[] roots)
         {
-            var rts = roots.Concat(roots.Where(a=>a.Imaginary!=0).Select(a => System.Numerics.Complex.Conjugate(a)));
+            var rts = roots.Concat(roots.Where(a => a.Imaginary != 0).Select(a => System.Numerics.Complex.Conjugate(a)));
             var p = MMP.Complex.Polynomial.OfRoots(rts.ToArray());
             return p.Real;
         }
@@ -93,11 +103,11 @@ namespace MMP.Double
         /// </summary>
         /// <returns>Formatted display</returns>
         public override string ToString()
-        {            
+        {
             var d = Degree;
             if (d == 0)
                 return a[0].ToString();
-            var b = new StringBuilder();            
+            var b = new StringBuilder();
             foreach (var c in a)
             {
                 if (c != 0.0)
@@ -137,11 +147,11 @@ namespace MMP.Double
             set
             {
                 if (d < a.Length)
-                    a[a.Length - d - 1]=value;
+                    a[a.Length - d - 1] = value;
             }
-        }                  
+        }
 
-        public static Func<scalar,scalar> Poly(params scalar[] coefficients)
+        public static Func<scalar, scalar> Poly(params scalar[] coefficients)
         {
             var p = new Polynomial(coefficients);
             return p.Evaluate;
@@ -159,10 +169,21 @@ namespace MMP.Double
             var r = new Polynomial(a);
             for (int d = 0; d < r.Degree; d++)
                 for (int i = 0; i < d + 1; i++)
-                    r[d] += p[i] * q[d - i];                
+                    r[d] += p[i] * q[d - i];
             return r;
         }
 
+        public static Polynomial operator +(Polynomial p, Polynomial q)
+        {
+            if (p.Degree < q.Degree)
+                MMP.Tools.Swap(ref p, ref q); //p.Degree >= q.Degree
+            var a = new scalar[p.a.Length];
+            p.a.CopyTo(a, 0);
+            var r = new Polynomial(a);
+            for (int d = 0; d <= q.Degree; d++)
+                r[d] += q[d];
+            return r;
+        }
     }
 }
 
