@@ -6,3 +6,10 @@
 * C++ 17
 * Matlab 2018
 * Julia 1
+
+## Vývojové prostředí (IDE)
+
+* Visual Studio 2017
+* Linqpad
+* Matlab
+* Atom 
