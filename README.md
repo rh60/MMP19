@@ -12,4 +12,4 @@
 * Visual Studio 2017 [Microsoft](https://visualstudio.microsoft.com/cs/)
 * Linqpad
 * Matlab
-* Atom 
+* Atom [JUNO](http://docs.junolab.org/latest/man/installation.html)
