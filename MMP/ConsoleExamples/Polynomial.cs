@@ -44,16 +44,16 @@ namespace ConsoleExamples
             var roots = _<Complex>(-1,1,1,1+i);
             var P = dpoly.OfRoots(roots);            
             WriteLine(P);
-            WriteLine();
+            WriteLine(cvec.OfArray(P.Roots));
         }
 
         public static void Ex4()
         {
             var p = new dpoly(1, 1, 0);
             var q = new dpoly(1, 2, -1);
-            WriteLine($"({p}) * ({q}) = {p * q}");
-            var r = p + q;
-            WriteLine($"({p}) + ({q}) = {r}");
+            WriteLine($"({p}) * ({q}) = {p * q}");           
+            WriteLine($"({p}) + ({q}) = {p + q}");            
+            WriteLine($"({p}) - ({q}) = {p - q}");
             WriteLine();
         }
     }

@@ -13,7 +13,7 @@ namespace ConsoleExamples
 {
     public static class MathNet
     {
-        public static void Ex()
+        public static void Ex1()
         {
             var x = vec.OfEnumerable(linspace(-PI, PI, 11));
             x /= 2;
@@ -21,7 +21,7 @@ namespace ConsoleExamples
             var tab = mat.OfColumnVectors(x, y);
             WriteLine("\tx\ty");
             WriteLine(tab);
-            WriteLine("Max(y)={0}",y.AbsoluteMaximum());
+            WriteLine("Max(y)={0}", y.AbsoluteMaximum());
         }
     }
 }

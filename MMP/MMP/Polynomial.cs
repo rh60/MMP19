@@ -83,6 +83,13 @@ namespace MMP.Double
             return p.Real;
         }
 
+        public static Polynomial QuadFactor(System.Numerics.Complex z)
+        {
+            var a = z.Real;
+            var b = z.Imaginary;
+            return new Polynomial(1, -2 * a, a * a + b * b);
+        }
+
         public static Polynomial OfRoots(params System.Numerics.Complex[] roots)
         {
             if (roots.Length == 0)
@@ -93,7 +100,7 @@ namespace MMP.Double
                 if (r.Imaginary == 0)
                     p *= new Polynomial(1, -r.Real);
                 else
-                    p *= MMP.Double.Tools.QuadFactor(r);
+                    p *= QuadFactor(r);
             }
             return p;
         }
@@ -184,12 +191,29 @@ namespace MMP.Double
                 r[d] += q[d];
             return r;
         }
+
+        public static Polynomial operator -(Polynomial p, Polynomial q)
+        {
+            return p + (-1) * q;
+        }
+
+        public System.Numerics.Complex[] Roots
+        {
+            get
+            {
+                return MathNet.Numerics.FindRoots.Polynomial(a.Reverse().ToArray());
+            }
+        }
     }
 }
 
 namespace MMP.Complex
 {
     using scalar = System.Numerics.Complex;
+
+    /// <summary>
+    /// Simple version  
+    /// </summary>
     public class Polynomial
     {
         scalar[] a;
@@ -288,3 +312,4 @@ namespace MMP.Complex
         }
     }
 }
+

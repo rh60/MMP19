@@ -11,7 +11,7 @@ namespace ConsoleExamples
         static void Main(string[] args)
         {
             Polynomial.Ex4();
-            //Polynomial.Ex3();
+            Polynomial.Ex3();
             //Polynomial.Ex1();
             //Polynomial.Ex2();
             //MathNet.Ex();

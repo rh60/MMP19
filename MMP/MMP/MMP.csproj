@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Double.Tools.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="Geometry.cs" />
     <Compile Include="Interpolation.cs" />
