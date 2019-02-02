@@ -204,6 +204,30 @@ namespace MMP.Double
                 return MathNet.Numerics.FindRoots.Polynomial(a.Reverse().ToArray());
             }
         }
+
+        public Polynomial Derivative()
+        {
+            if (Degree == 0)
+                return new Polynomial();
+            var coefficients = new scalar[a.Length - 1];
+            coefficients[0] = scalar.NaN;
+            var r = new Polynomial(coefficients);
+            for (int d = 1; d <= Degree; d++)            
+                r[d - 1] = d * this[d];
+            return r;
+        }
+
+        public Polynomial AntiDerivative()
+        {
+            if (Degree == 0 && a[0]==0)
+                return new Polynomial();
+            var coefficients = new scalar[a.Length + 1];
+            coefficients[0] = scalar.NaN;
+            var r = new Polynomial(coefficients);
+            for (int d = 0; d < r.Degree; d++)
+                r[d+1] = this[d]/(d+1);
+            return r;
+        }
     }
 }
 

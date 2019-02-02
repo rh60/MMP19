@@ -56,6 +56,16 @@ namespace ConsoleExamples
             WriteLine($"({p}) - ({q}) = {p - q}");
             WriteLine();
         }
+
+        public static void Ex5()
+        {
+            var p = new dpoly(-1, 2, 3, 0, 4);
+            var z = new dpoly();
+            WriteLine($"d({p})/dx = {p.Derivative()}");
+            WriteLine($"Int({p})dx = {p.AntiDerivative()}");
+            WriteLine($"Int({z})dx = {z.AntiDerivative()}");
+            WriteLine();
+        }
     }
 }
 
