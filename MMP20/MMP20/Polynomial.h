@@ -1,5 +1,8 @@
 #pragma once
 #include <vector>
+#include <string>
+#include <ostream>
+#include <cmath>
 
 namespace MMP
 {	
@@ -13,8 +16,10 @@ namespace MMP
 	public:
 		Polynomial(vector<scalar>);
 		Polynomial();
+		int Degree() const;
 		scalar operator()(scalar);
 		Polynomial<scalar> MultiplyByFactor(scalar);
+		void Print(ostream&) const;
 		static Polynomial<scalar> OfRoots(vector<scalar>);
 		~Polynomial();
 	};
@@ -39,6 +44,12 @@ namespace MMP
 	{
 	}
 
+	template<typename scalar>
+	inline int Polynomial<scalar>::Degree() const
+	{
+		return a.size()-1;
+	}
+
 	template <typename scalar>
 	inline scalar Polynomial<scalar>::operator()(scalar x)
 	{
@@ -61,6 +72,36 @@ namespace MMP
 	}
 
 	template<typename scalar>
+	inline void Polynomial<scalar>::Print(ostream & out) const
+	{
+		auto d = Degree();
+		if (d == 0)
+		{
+			out << a[0];
+			return;
+		}
+		for (auto c : a)
+		{
+			if (c != 0.0)
+			{
+				if (d < Degree())
+					if (c > 0.0)
+						out << "+";
+					else
+						out << "-";
+				auto ac = fabs(c);
+				if (ac != 1 || d == 0)
+					out << ac;
+				if (d > 1)
+					out << "x^" << d;
+				else if (d == 1)
+					out << "x";
+			}
+			d--;
+		}
+	}
+
+	template<typename scalar>
 	inline Polynomial<scalar> Polynomial<scalar>::OfRoots(vector<scalar> roots)
 	{
 		if (roots.size() == 0)
@@ -75,4 +116,7 @@ namespace MMP
 		}	
 		return Polynomial(a);
 	}
+
+	
+
 }

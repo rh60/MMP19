@@ -15,5 +15,9 @@ int main()
 
 	auto poly = Polynomial<double>::OfRoots(roots);
 	for (auto r : roots)
-		std::cout << r << ' ' << poly(r) << std::endl;
+		cout << r << ' ' << poly(r) << endl;
+
+	p.Print(cout); cout << endl;
+	q.Print(cout); cout << endl;
+	poly.Print(cout); cout << endl;
 }
