@@ -10,6 +10,6 @@
 ## Vývojová prostředí (IDE)
 
 * Visual Studio 2017 [Microsoft](https://visualstudio.microsoft.com/cs/)
-* Linqpad
+* [Linqpad](https://www.linqpad.net/)
 * Matlab
 * Atom [JUNO](http://docs.junolab.org/latest/man/installation.html)
