@@ -120,14 +120,14 @@ namespace MMP
         public static OxyPlot.WindowsForms.PlotView Plot(IEnumerable<PlainCurve> curves, IEnumerable<double> data)
         {
             var plotv = new OxyPlot.WindowsForms.PlotView();
-            Plot(curves, data);
+            Plot(plotv, curves, data);
             return plotv;
         }
 
         public static OxyPlot.WindowsForms.PlotView Plot(IEnumerable<Func<double, double>> funs, IEnumerable<double> data)
         {
             var plotv = new OxyPlot.WindowsForms.PlotView();
-            Plot(funs, data);
+            Plot(plotv, funs, data);
             return plotv;
         }
 
