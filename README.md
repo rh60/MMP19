@@ -13,3 +13,8 @@
 * [Linqpad](https://www.linqpad.net/)
 * Matlab
 * Atom [JUNO](http://docs.junolab.org/latest/man/installation.html)
+
+## Softwarové knihovny pro technické výpočty a vizualizace
+
+* [Math.Net Numerics](https://numerics.mathdotnet.com/)
+* [Oxyplot](http://www.oxyplot.org/)
