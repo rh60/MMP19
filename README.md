@@ -5,7 +5,7 @@
 * C# 7 [Microsoft](https://docs.microsoft.com/cs-cz/dotnet/csharp/)
 * C++ 17 [cppreference](https://en.cppreference.com/w/)
 * Matlab 2018 [OOP](https://www.mathworks.com/help/pdf_doc/matlab/matlab_oop.pdf)
-* Julia 1.x [julialang](https://julialang.org/)
+* Julia 1.x [julialang](https://julialang.org/) [Wilkinsonova cena](http://news.mit.edu/2018/julia-language-co-creators-win-james-wilkinson-prize-numerical-software-1226)
 
 ## Nástroje a vývojová prostředí (IDE)
 
