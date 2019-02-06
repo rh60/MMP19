@@ -13,7 +13,8 @@
 * [vcpkg](https://github.com/Microsoft/vcpkg)
 * [CMake](https://cmake.org/)
 * [Linqpad](https://www.linqpad.net/)
-* Matlab
+* [Rapid Enviroment Editor](https://www.rapidee.com/en/download)
+* Matlab [Mathworks](https://www.mathworks.com/products/matlab.html)
 * Atom [JUNO](http://docs.junolab.org/latest/man/installation.html)
 
 ## Softwarové knihovny pro technické výpočty a vizualizace
