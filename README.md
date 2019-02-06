@@ -4,7 +4,7 @@
 
 * C# 7 [Microsoft](https://docs.microsoft.com/cs-cz/dotnet/csharp/)
 * C++ 17 [cppreference](https://en.cppreference.com/w/)
-* Matlab 2018
+* Matlab 2018 [OOP](https://www.mathworks.com/help/pdf_doc/matlab/matlab_oop.pdf)
 * Julia 1.x [julialang](https://julialang.org/)
 
 ## Vývojová prostředí (IDE)
