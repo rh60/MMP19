@@ -7,9 +7,10 @@
 * Matlab 2018 [OOP](https://www.mathworks.com/help/pdf_doc/matlab/matlab_oop.pdf)
 * Julia 1.x [julialang](https://julialang.org/)
 
-## Vývojová prostředí (IDE)
+## Nástroje a vývojová prostředí (IDE)
 
 * Visual Studio 2017 [Microsoft](https://visualstudio.microsoft.com/cs/)
+* [vcpkg](https://github.com/Microsoft/vcpkg)
 * [CMake](https://cmake.org/)
 * [Linqpad](https://www.linqpad.net/)
 * Matlab
@@ -21,3 +22,4 @@
 * [Oxyplot](http://www.oxyplot.org/)
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 * [Armadillo](http://arma.sourceforge.net/)
+* [VTK](https://vtk.org/)
