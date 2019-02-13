@@ -31,3 +31,5 @@
 * [Armadillo](http://arma.sourceforge.net/)
 ---
 * [MKL](https://software.intel.com/en-us/mkl)
+* [Microsoft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
+* [MPI.NET](https://github.com/jmp75/MPI.NET)
