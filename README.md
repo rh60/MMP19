@@ -29,3 +29,5 @@
 ---
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 * [Armadillo](http://arma.sourceforge.net/)
+---
+* [MKL](https://software.intel.com/en-us/mkl)
