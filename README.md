@@ -23,6 +23,7 @@
 ## Softwarové knihovny pro technické výpočty a vizualizace
 
 * [Math.Net Numerics](https://numerics.mathdotnet.com/)
+* [Alglib](http://www.alglib.net/)
 * [Oxyplot](http://www.oxyplot.org/)
 * [VTK](https://vtk.org/)
 ---
