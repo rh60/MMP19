@@ -7,8 +7,8 @@
     <ProjectGuid>{18E22D49-BAD8-48A7-97DB-DEE3D8DC230D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MMP</RootNamespace>
-    <AssemblyName>MMP</AssemblyName>
+    <RootNamespace>MELib</RootNamespace>
+    <AssemblyName>MELib</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algebra.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="Geometry.cs" />
     <Compile Include="Interpolation.cs" />

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MMP.Interpolation
+namespace MELib.Interpolation
 {
-       
+
     public class Node
     {
         public class Leaf
@@ -34,12 +34,12 @@ namespace MMP.Interpolation
 
         public Node(Node n1, Node n2)
         {
-            tspan = new TimeSpan(n1.tspan.Start, n2.tspan.Stop);           
-            left = n1.Functor;          
+            tspan = new TimeSpan(n1.tspan.Start, n2.tspan.Stop);
+            left = n1.Functor;
             right = n2.Functor;
-        }        
+        }
 
-        public Func<double, Point> Functor => t => tspan.Left(t) * left(t) + tspan.Right(t) * right(t);       
+        public Func<double, Point> Functor => t => tspan.Left(t) * left(t) + tspan.Right(t) * right(t);
     }
 
     public static class Curve
@@ -51,8 +51,8 @@ namespace MMP.Interpolation
             for (int i = 0; i < n; i++)
                 nodes[i] = new Node(c[i].t, c[i + 1].t, c[i], c[i + 1]);
             for (int i = 1; i < n; i++)
-                for (int j = 0; j < n-i; j++)                
-                    nodes[j] = new Node(nodes[j], nodes[j + 1]);               
+                for (int j = 0; j < n - i; j++)
+                    nodes[j] = new Node(nodes[j], nodes[j + 1]);
             return nodes[0].Functor;
         }
     }

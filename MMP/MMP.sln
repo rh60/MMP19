@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMP", "MMP\MMP.csproj", "{18E22D49-BAD8-48A7-97DB-DEE3D8DC230D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MELib", "MMP\MELib.csproj", "{18E22D49-BAD8-48A7-97DB-DEE3D8DC230D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsExamples", "WindowsFormsExamples\WindowsFormsExamples.csproj", "{853CDD9F-7CA5-45F7-8B5C-3DC53A3C9B3A}"
 EndProject

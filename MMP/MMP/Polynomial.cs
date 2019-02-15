@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MMP.Double
+namespace MELib.Double
 {
     using scalar = System.Double;
     public class Polynomial
@@ -79,7 +79,7 @@ namespace MMP.Double
         public static Polynomial OfRootsAlternative(params System.Numerics.Complex[] roots)
         {
             var rts = roots.Concat(roots.Where(a => a.Imaginary != 0).Select(a => System.Numerics.Complex.Conjugate(a)));
-            var p = MMP.Complex.Polynomial.OfRoots(rts.ToArray());
+            var p = MELib.Complex.Polynomial.OfRoots(rts.ToArray());
             return p.Real;
         }
 
@@ -183,7 +183,7 @@ namespace MMP.Double
         public static Polynomial operator +(Polynomial p, Polynomial q)
         {
             if (p.Degree < q.Degree)
-                MMP.Tools.Swap(ref p, ref q); //p.Degree >= q.Degree
+                ME.Swap(ref p, ref q); //p.Degree >= q.Degree
             var a = new scalar[p.a.Length];
             p.a.CopyTo(a, 0);
             var r = new Polynomial(a);
@@ -212,26 +212,26 @@ namespace MMP.Double
             var coefficients = new scalar[a.Length - 1];
             coefficients[0] = scalar.NaN;
             var r = new Polynomial(coefficients);
-            for (int d = 1; d <= Degree; d++)            
+            for (int d = 1; d <= Degree; d++)
                 r[d - 1] = d * this[d];
             return r;
         }
 
         public Polynomial AntiDerivative()
         {
-            if (Degree == 0 && a[0]==0)
+            if (Degree == 0 && a[0] == 0)
                 return new Polynomial();
             var coefficients = new scalar[a.Length + 1];
             coefficients[0] = scalar.NaN;
             var r = new Polynomial(coefficients);
             for (int d = 0; d < r.Degree; d++)
-                r[d+1] = this[d]/(d+1);
+                r[d + 1] = this[d] / (d + 1);
             return r;
         }
     }
 }
 
-namespace MMP.Complex
+namespace MELib.Complex
 {
     using scalar = System.Numerics.Complex;
 
@@ -321,11 +321,11 @@ namespace MMP.Complex
             return b.ToString();
         }
 
-        public MMP.Double.Polynomial Real
+        public MELib.Double.Polynomial Real
         {
             get
             {
-                return new MMP.Double.Polynomial(a.Select(p => p.Real).ToArray());
+                return new MELib.Double.Polynomial(a.Select(p => p.Real).ToArray());
             }
         }
 

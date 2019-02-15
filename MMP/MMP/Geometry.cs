@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MMP
+namespace MELib
 {
     public struct Point
     {

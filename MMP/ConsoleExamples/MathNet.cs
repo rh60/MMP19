@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Math;
-using static MMP.Linspace;
+using static MELib.Linspace;
 using static System.Console;
 using vec = MathNet.Numerics.LinearAlgebra.Double.DenseVector;
 using mat = MathNet.Numerics.LinearAlgebra.Double.DenseMatrix;

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MMP.Tools;
+using static ME;
 using static System.Console;
 using System.Numerics;
 using dvec = MathNet.Numerics.LinearAlgebra.Double.DenseVector;
 using cvec = MathNet.Numerics.LinearAlgebra.Complex.DenseVector;
-using dpoly = MMP.Double.Polynomial;
-using cpoly = MMP.Complex.Polynomial;
+using dpoly = MELib.Double.Polynomial;
+using cpoly = MELib.Complex.Polynomial;
 
 namespace ConsoleExamples
 {

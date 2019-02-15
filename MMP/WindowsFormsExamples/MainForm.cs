@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Math;
-using static MMP.OxyPlotAdapter;
-using static MMP.Linspace;
+using static MELib.OxyPlotAdapter;
+using static MELib.Linspace;
 using fd=System.Func<double,double>;
 
 namespace WindowsFormsExamples

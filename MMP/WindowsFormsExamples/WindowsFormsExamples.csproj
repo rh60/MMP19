@@ -94,9 +94,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MMP\MMP.csproj">
+    <ProjectReference Include="..\MMP\MELib.csproj">
       <Project>{18e22d49-bad8-48a7-97db-dee3d8dc230d}</Project>
-      <Name>MMP</Name>
+      <Name>MELib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
