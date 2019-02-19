@@ -14,6 +14,7 @@
 ---
 * Matlab [Mathworks](https://www.mathworks.com/products/matlab.html)
 * [GNU Octave](https://www.gnu.org/software/octave/)
+* [Paraview](https://www.paraview.org/)
 ---
 * [vcpkg](https://github.com/Microsoft/vcpkg)
 * [Rapid Enviroment Editor](https://www.rapidee.com/en/download)
