@@ -41,8 +41,8 @@ namespace ConsoleExamples
         public static void Ex3()
         {
             var i = new Complex(0, 1);
-            var roots = _<Complex>(-1,1,1,1+i);
-            var P = dpoly.OfRoots(roots);            
+            var roots = _<Complex>(-1, 1, 1, 1 + i);
+            var P = dpoly.OfRoots(roots);
             WriteLine(P);
             WriteLine(cvec.OfArray(P.Roots));
         }
@@ -51,8 +51,8 @@ namespace ConsoleExamples
         {
             var p = new dpoly(1, 1, 0);
             var q = new dpoly(1, 2, -1);
-            WriteLine($"({p}) * ({q}) = {p * q}");           
-            WriteLine($"({p}) + ({q}) = {p + q}");            
+            WriteLine($"({p}) * ({q}) = {p * q}");
+            WriteLine($"({p}) + ({q}) = {p + q}");
             WriteLine($"({p}) - ({q}) = {p - q}");
             WriteLine();
         }
@@ -65,6 +65,11 @@ namespace ConsoleExamples
             WriteLine($"Int({p})dx = {p.AntiDerivative()}");
             WriteLine($"Int({z})dx = {z.AntiDerivative()}");
             WriteLine();
+        }
+
+        public static void Ex6()
+        {
+            var b = ME.BernsteinBase(2, 0.1);
         }
     }
 }

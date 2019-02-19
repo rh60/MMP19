@@ -19,11 +19,51 @@ public static class ME
         a = b;
         b = tmp;
     }
+
+    public static void Fill<T>(this T[] array, T value)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = value;
+        }
+    }
+
+    public static int[] Binomial(int n)
+    {
+        var bin = new MELib.Binomial();
+        for (int i = 0; i < n; i++)
+            bin.Next();
+        return bin.Next();
+    }
+
     public static IEnumerable<int[]> PascalTriangle(int n)
     {
         var bin = new MELib.Binomial();
         for (int i = 0; i < n; i++)
-            yield return bin.Next;
+            yield return bin.Next();
+    }
+    /// <summary>
+    /// Computes n+1 values of Bernstein base polynomials at point x
+    /// </summary>
+    /// <param name="n">Degree</param>
+    /// <param name="x">Point</param>
+    /// <returns></returns>
+    public static double[] BernsteinBase(int n, double x)
+    {
+        var b = new double[n + 1];
+        b.Fill(1);
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n - i; j++)
+            {
+                b[j] *= 1 - x;
+                b[n - j] *= x;
+            }
+        }
+        var c = Binomial(n);
+        for (int i = 0; i < n + 1; i++)
+            b[i] *= c[i];
+        return b;
     }
 }
 

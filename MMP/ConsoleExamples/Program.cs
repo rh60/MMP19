@@ -10,9 +10,10 @@ namespace ConsoleExamples
     {
         static void Main(string[] args)
         {
-            Polynomial.Ex5();
-            Polynomial.Ex4();
-            Polynomial.Ex3();
+            Polynomial.Ex6();
+            //Polynomial.Ex5();
+            //Polynomial.Ex4();
+            //Polynomial.Ex3();
             //Polynomial.Ex1();
             //Polynomial.Ex2();
             //MathNet.Ex();
