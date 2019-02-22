@@ -69,7 +69,10 @@ namespace ConsoleExamples
 
         public static void Ex6()
         {
-            var b = ME.BernsteinBase(2, 0.1);
+            var t = new double[] { 0.1, 0.2 };
+            var b = new MELib.BernsteinBase(t);
+            b.Next(); b.Next();
+            var @base = b.Next(); 
         }
     }
 }

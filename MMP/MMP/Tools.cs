@@ -66,6 +66,19 @@ public static class ME
             b[i] *= c[i];
         return b;
     }
+    /// <summary>
+    /// Computes n+1 values of Bernstein base polynomials at point x
+    /// </summary>
+    /// <param name="n">Degree</param>
+    /// <param name="x">Points</param>
+    /// <returns></returns>
+    public static double[][] BernsteinBase(int n, double[] x)
+    {
+        var b = new MELib.BernsteinBase(x);
+        for (int i = 0; i < n; i++)
+            b.Next();        
+        return b.Next();
+    }
 
     public static double QuasiApprox(double[] @base, double[] vals)
     {
