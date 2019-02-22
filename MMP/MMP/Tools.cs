@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using int_t = System.Int64;
 
 public static class ME
 {
@@ -28,7 +29,7 @@ public static class ME
         }
     }
 
-    public static int[] Binomial(int n)
+    public static int_t[] Binomial(int n)
     {
         var bin = new MELib.Binomial();
         for (int i = 0; i < n; i++)
@@ -36,7 +37,7 @@ public static class ME
         return bin.Next();
     }
 
-    public static IEnumerable<int[]> PascalTriangle(int n)
+    public static IEnumerable<int_t[]> PascalTriangle(int n)
     {
         var bin = new MELib.Binomial();
         for (int i = 0; i < n; i++)
@@ -65,5 +66,9 @@ public static class ME
             b[i] *= c[i];
         return b;
     }
-}
 
+    public static double QuasiApprox(double[] @base, double[] vals)
+    {
+        return @base.Zip(vals, (x, y) => x * y).Sum();
+    }
+}
