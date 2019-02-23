@@ -80,8 +80,18 @@ public static class ME
         return b.Next();
     }
 
-    public static double QuasiApprox(double[] @base, double[] vals)
+    public static double Dot(double[] @base, double[] vals)
     {
         return @base.Zip(vals, (x, y) => x * y).Sum();
+    }
+
+    public static double[] Lin(double[][] @base, double[] vals)
+    {
+        var n = @base[0].Length;
+        var r = new double[n];
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < @base.Length; j++)
+                r[i] += vals[j] * @base[j][i];
+        return r;
     }
 }
