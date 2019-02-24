@@ -20,6 +20,10 @@ public static class ME
         a = b;
         b = tmp;
     }
+    public static IEnumerable<double> linspace(double a, double b, int n = 11)
+    {
+        return new MELib.Linspace(a, b, n);
+    }
 
     public static void Fill<T>(this T[] array, T value)
     {
