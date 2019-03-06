@@ -5,18 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.Marshal;
 using static System.Console;
+using static US.Vector; 
 
-namespace usa
-{
-
+namespace US
+{  
     unsafe class Vector : IDisposable
     {
+        public class  EndInd
+        {
+            private EndInd() { }
+        };
+        public static EndInd End;
+
         IntPtr data;
-        double* p; 
+        double* p;
+        long size; 
         public Vector(long size)
         {
-            data = AllocHGlobal((IntPtr)(size*sizeof(double)));
+            data = AllocHGlobal((IntPtr)(size * sizeof(double)));
             p = (double*)data;
+            this.size = size;
         }
 
         public double this[long i]
@@ -30,6 +38,19 @@ namespace usa
                 p[i] = value;
             }
         }
+
+        public double this[EndInd i]
+        {
+            get
+            {            
+                return p[size-1];
+            }
+            set
+            {
+                p[size-1] = value;
+            }
+        }
+
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
@@ -52,9 +73,10 @@ namespace usa
         }
 
         // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        ~Vector() {
-        // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-           Dispose(false);
+        ~Vector()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(false);
         }
 
         // This code added to correctly implement the disposable pattern.
@@ -76,7 +98,10 @@ namespace usa
             WriteLine(v[0]);
             v[0] = 3;
             WriteLine(v[0]);
-            //v.Dispose();
+            v[End] = 100;
+            WriteLine(v[End]);
+            //EndInd ind = new EndInd();
+            v.Dispose();
         }
     }
 }
