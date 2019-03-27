@@ -38,3 +38,7 @@
 ## Poznámky
 
 * [Velikost pole](https://docs.microsoft.com/cs-cz/dotnet/framework/configure-apps/file-schema/runtime/gcallowverylargeobjects-element)
+* [Ulamova spirála](https://en.wikipedia.org/wiki/Ulam_spiral)
+* [Polygonální čísla](https://en.wikipedia.org/wiki/Polygonal_number)
+
+
