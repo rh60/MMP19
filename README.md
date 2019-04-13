@@ -1,4 +1,5 @@
 # Moderní Metody Programování (SR3)
+[LINQ](https://github.com/rh60/MMP19/blob/master/Linq.pdf)
 
 ## Programovací jazyky 
 
