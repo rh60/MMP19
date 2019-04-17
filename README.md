@@ -47,4 +47,9 @@
 * [University of Leicester](https://www2.le.ac.uk/departments/mathematics/research/vem/virtual-element-method-1)
 * [IMATI CNR Pavia](http://www.ge.imati.cnr.it/index.php/news/11-general/267-vem)
 * [CAMLAB University of Chile](http://camlab.cl/tag/virtual-element-method/)
+---
+* [Mimetic FDM](https://www.springer.com/gb/book/9783319026626)
+* [Generalized Barycentric Coordinates](https://www.crcpress.com/Generalized-Barycentric-Coordinates-in-Computer-Graphics-and-Computational/Hormann-Sukumar/p/book/9781498763592)
+
+
 
