@@ -50,6 +50,8 @@
 ---
 * [Mimetic FDM](https://www.springer.com/gb/book/9783319026626)
 * [Generalized Barycentric Coordinates](https://www.crcpress.com/Generalized-Barycentric-Coordinates-in-Computer-Graphics-and-Computational/Hormann-Sukumar/p/book/9781498763592)
-
+---
+* [Franco Brezzi](http://arturo.imati.cnr.it/brezzi/)
+* [N. Sukumar](http://dilbert.engr.ucdavis.edu/~suku/)
 
 
