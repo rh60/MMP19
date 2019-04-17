@@ -42,4 +42,6 @@
 * [Ulamova spirála](https://en.wikipedia.org/wiki/Ulam_spiral)
 * [Polygonální čísla](https://en.wikipedia.org/wiki/Polygonal_number)
 
+## Metoda Virtuálních Elementů (VEM)
 
+* [University of Leicester](https://www2.le.ac.uk/departments/mathematics/research/vem/virtual-element-method-1)
