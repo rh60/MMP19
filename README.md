@@ -41,7 +41,8 @@
 * [Velikost pole](https://docs.microsoft.com/cs-cz/dotnet/framework/configure-apps/file-schema/runtime/gcallowverylargeobjects-element)
 * [Ulamova spirála](https://en.wikipedia.org/wiki/Ulam_spiral)
 * [Polygonální čísla](https://en.wikipedia.org/wiki/Polygonal_number)
-* Zaklínadlo
+* [Zaklínadlo]
+
 using static System.Globalization.CultureInfo;
 using static System.Threading.Thread;
 CurrentThread.CurrentCulture = InvariantCulture;
